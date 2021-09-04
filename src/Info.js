@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Info = (props) => {
   const [name, setName] = useState("");
   const [nickName, setNickName] = useState("");
+
+  useEffect(() => {
+    console.log(`Completed Rendering`);
+
+    return () => {
+      console.log(`Before Rendering, ${name}`);
+    };
+  }, [name]);
 
   const onChangeName = (e) => {
     setName(e.target.value);
